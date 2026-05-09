@@ -24,6 +24,7 @@ import javafx.stage.Stage;
 import ocsf.server.ConnectionToClient;
 import server.BParkServer;
 import server.ServerUI;
+import server.ConfigReader;
 
 public class ServerDisplayController implements Initializable {
    private static ServerDisplayController instance;
@@ -85,7 +86,7 @@ public class ServerDisplayController implements Initializable {
       this.port.setText("5555");
       this.DBname.setText("bpark");
       this.DBuser.setText("root");
-      this.DBpassword.setText("Enter database password");
+      this.DBpassword.setText(ConfigReader.get("db.password"));
 
       try {
          String ipAddress = InetAddress.getLocalHost().getHostAddress();

@@ -6,8 +6,8 @@ import java.util.Properties;
 
 public class EmailSender {
 
-    private static final String USERNAME = "YOUR_EMAIL@gmail.com";
-    private static final String PASSWORD = "YOUR_GMAIL_APP_PASSWORD";
+    private static final String USERNAME = ConfigReader.get("email.username");
+    private static final String PASSWORD = ConfigReader.get("email.password");
 
     public static void sendRecoveryEmail(String recipientEmail, String code) throws MessagingException {
         Properties props = new Properties();
