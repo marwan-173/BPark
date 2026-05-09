@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="650.0" prefWidth="800.0"
+	style="-fx-background-color: linear-gradient(to bottom, #1e3c72, #2a5298); 
+           -fx-border-color: linear-gradient(to bottom, #3b82f6, #1d4ed8); 
+           -fx-border-width: 2px; 
+           -fx-background-radius: 20; 
+           -fx-border-radius: 20;"
+	xmlns="http://javafx.com/javafx/23.0.1"
+	xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="clientGui.ClientReservationController">
+
+	<effect>
+		<DropShadow color="#00000080" radius="25.0" spread="0.1"
+			offsetY="15" />
+	</effect>
+
+	<!-- Header Section -->
+	<top>
+		<VBox
+			style="-fx-background-color: linear-gradient(to right, #667eea, #764ba2); 
+                     -fx-background-radius: 20 20 0 0; 
+                     -fx-padding: 25;">
+			<effect>
+				<InnerShadow color="#ffffff20" radius="10.0" />
+			</effect>
+
+			<!-- Icon and Title -->
+			<HBox alignment="CENTER" spacing="20">
+				<!-- Parking Icon Circle -->
+				<StackPane>
+					<Circle radius="35"
+						style="-fx-fill: linear-gradient(to bottom, #ffffff, #e2e8f0);" />
+					<Circle radius="32"
+						style="-fx-fill: linear-gradient(to bottom, #3b82f6, #1e40af);" />
+					<Label text="🅿️" style="-fx-font-size: 28px;" />
+					<effect>
+						<DropShadow color="#00000040" radius="8.0" />
+					</effect>
+				</StackPane>
+
+				<!-- Title -->
+				<VBox alignment="CENTER_LEFT">
+					<Label text="Reserve Parking Spot"
+						style="-fx-font-size: 36px; 
+                                  -fx-font-weight: bold; 
+                                  -fx-text-fill: white;">
+						<font>
+							<Font name="Segoe UI Bold" size="36.0" />
+						</font>
+						<effect>
+							<DropShadow color="#00000060" radius="5.0" />
+						</effect>
+					</Label>
+					<Label
+						text="Reservation is automatic – just select date and time"
+						style="-fx-font-size: 14px; 
+                                  -fx-text-fill: #e2e8f0; 
+                                  -fx-font-style: italic;">
+						<effect>
+							<DropShadow color="#00000040" radius="2.0" />
+						</effect>
+					</Label>
+				</VBox>
+			</HBox>
+
+			<!-- Decorative separator -->
+			<Separator style="-fx-background-color: #ffffff40;" />
+		</VBox>
+	</top>
+
+	<!-- Main Content -->
+	<center>
+		<VBox alignment="CENTER" style="-fx-padding: 40;">
+			<!-- Main Card -->
+			<VBox
+				style="-fx-background-color: linear-gradient(to bottom, #ffffff, #f8fafc); 
+                         -fx-background-radius: 15; 
+                         -fx-padding: 35; 
+                         -fx-spacing: 25;
+                         -fx-border-color: #e2e8f0;
+                         -fx-border-width: 1px;
+                         -fx-border-radius: 15;
+                         -fx-max-width: 600;">
+				<effect>
+					<DropShadow color="#00000020" radius="15.0"
+						spread="0.05" />
+				</effect>
+
+				<!-- Card Header -->
+				<HBox alignment="CENTER" spacing="10">
+					<Label text="📅" style="-fx-font-size: 24px;" />
+					<Label text="Reservation Details"
+						style="-fx-font-size: 22px; 
+                                  -fx-font-weight: bold; 
+                                  -fx-text-fill: #1e40af;">
+						<font>
+							<Font name="Segoe UI Bold" size="22.0" />
+						</font>
+					</Label>
+				</HBox>
+
+				<Separator style="-fx-background-color: #e2e8f0;" />
+
+				<!-- Date Selection -->
+				<VBox spacing="12">
+					<HBox alignment="CENTER_LEFT" spacing="8">
+						<Label text="📆" style="-fx-font-size: 18px;" />
+						<Label text="Reservation Date"
+							style="-fx-font-size: 16px; 
+                                      -fx-font-weight: bold; 
+                                      -fx-text-fill: #374151;" />
+					</HBox>
+					<DatePicker fx:id="datePickerReservationDate"
+						style="-fx-background-color: linear-gradient(to bottom, #fef3c7, #fde68a); 
+                               -fx-border-color: #f59e0b; 
+                               -fx-border-width: 1px;
+                               -fx-border-radius: 8px; 
+                               -fx-background-radius: 8px; 
+                               -fx-font-size: 15px; 
+                               -fx-padding: 8 12;
+                               -fx-pref-width: 350;">
+						<effect>
+							<InnerShadow color="#00000010" radius="3.0" />
+						</effect>
+					</DatePicker>
+				</VBox>
+
+				<!-- Time Selection -->
+				<VBox spacing="12">
+					<HBox alignment="CENTER_LEFT" spacing="8">
+						<Label text="🕐" style="-fx-font-size: 18px;" />
+						<Label text="Reservation Time (HH:MM)"
+							style="-fx-font-size: 16px; 
+                                      -fx-font-weight: bold; 
+                                      -fx-text-fill: #374151;" />
+					</HBox>
+					<TextField fx:id="txtTime" promptText="e.g., 14:30"
+						style="-fx-background-color: linear-gradient(to bottom, #f1f5f9, #e2e8f0); 
+                               -fx-text-fill: #1f2937; 
+                               -fx-prompt-text-fill: #9ca3af; 
+                               -fx-border-color: #cbd5e1; 
+                               -fx-border-width: 1px;
+                               -fx-border-radius: 8px; 
+                               -fx-background-radius: 8px; 
+                               -fx-font-size: 15px; 
+                               -fx-padding: 12 16;
+                               -fx-pref-width: 350;">
+						<effect>
+							<InnerShadow color="#00000010" radius="3.0" />
+						</effect>
+					</TextField>
+				</VBox>
+
+				<!-- Info Box -->
+				<HBox
+					style="-fx-background-color: linear-gradient(to bottom, #dbeafe, #bfdbfe);
+                             -fx-padding: 15;
+                             -fx-background-radius: 8;
+                             -fx-border-color: #3b82f6;
+                             -fx-border-width: 1px;
+                             -fx-border-radius: 8;">
+					<Label text="ℹ️  " style="-fx-font-size: 14px;" />
+					<Label
+						text="Your parking spot will be automatically reserved upon submission"
+						style="-fx-font-size: 14px;
+                                  -fx-text-fill: #1e40af;
+                                  -fx-font-weight: bold;"
+						wrapText="true" />
+				</HBox>
+
+				<!-- Status Label -->
+				<HBox alignment="CENTER" style="-fx-padding: 10 0 0 0;">
+					<Label fx:id="lblStatus" text=""
+						style="-fx-font-size: 14px; 
+                              -fx-text-fill: #ef4444; 
+                              -fx-font-weight: bold;
+                              -fx-background-color: #fee2e2;
+                              -fx-padding: 10 20;
+                              -fx-background-radius: 8;"
+						wrapText="true" />
+				</HBox>
+			</VBox>
+		</VBox>
+	</center>
+
+	<!-- Footer with Actions -->
+	<bottom>
+		<HBox alignment="CENTER" spacing="20"
+			style="-fx-padding: 25; 
+                     -fx-background-color: linear-gradient(to right, #667eea, #764ba2); 
+                     -fx-background-radius: 0 0 20 20;">
+
+			<!-- Back Button -->
+			<Button text="← Back" onAction="#getBackBtn"
+				style="-fx-background-color: linear-gradient(to bottom, #ef4444, #dc2626); 
+                           -fx-text-fill: white; 
+                           -fx-font-weight: bold; 
+                           -fx-font-size: 15px; 
+                           -fx-padding: 12 30; 
+                           -fx-background-radius: 25; 
+                           -fx-border-color: #b91c1c;
+                           -fx-border-width: 1px;
+                           -fx-border-radius: 25;
+                           -fx-cursor: hand;">
+				<effect>
+					<DropShadow color="#00000040" radius="8.0" spread="0.1" />
+				</effect>
+			</Button>
+
+			<!-- Clear Button -->
+			<Button text="Clear" onAction="#clearAllFieldsBtn"
+				style="-fx-background-color: linear-gradient(to bottom, #6b7280, #4b5563); 
+                           -fx-text-fill: white; 
+                           -fx-font-weight: bold; 
+                           -fx-font-size: 15px; 
+                           -fx-padding: 12 30; 
+                           -fx-background-radius: 25; 
+                           -fx-border-color: #374151;
+                           -fx-border-width: 1px;
+                           -fx-border-radius: 25;
+                           -fx-cursor: hand;">
+				<effect>
+					<DropShadow color="#00000040" radius="8.0" spread="0.1" />
+				</effect>
+			</Button>
+
+			<!-- Reserve Button -->
+			<Button text="✓ Reserve Spot" onAction="#submitReservationBtn"
+				style="-fx-background-color: linear-gradient(to bottom, #22c55e, #16a34a); 
+                           -fx-text-fill: white; 
+                           -fx-font-weight: bold; 
+                           -fx-font-size: 15px; 
+                           -fx-padding: 12 30; 
+                           -fx-background-radius: 25; 
+                           -fx-border-color: #15803d;
+                           -fx-border-width: 1px;
+                           -fx-border-radius: 25;
+                           -fx-cursor: hand;">
+				<effect>
+					<DropShadow color="#00000040" radius="8.0" spread="0.1" />
+				</effect>
+			</Button>
+		</HBox>
+	</bottom>
+</BorderPane>

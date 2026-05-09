@@ -1,0 +1,27 @@
+# Eclipse
+.metadata/
+.settings/
+.classpath
+.project
+bin/
+
+# Java build files
+*.class
+*.jar
+*.war
+*.ear
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Secrets / local config
+config.properties
+*.env
+
+# Release packages
+release/
+BPark_Release/

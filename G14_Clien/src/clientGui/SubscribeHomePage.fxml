@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="720.0" prefWidth="1024.0"
+	style="-fx-background-color: linear-gradient(to bottom, #1e3c72, #2a5298); 
+           -fx-border-color: linear-gradient(to bottom, #3b82f6, #1d4ed8); 
+           -fx-border-width: 2px; 
+           -fx-background-radius: 15; 
+           -fx-border-radius: 15;"
+	xmlns="http://javafx.com/javafx/23.0.1"
+	xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="clientGui.ClientHomePageController">
+
+	<effect>
+		<DropShadow color="#00000080" radius="20.0" spread="0.1"
+			offsetY="10" />
+	</effect>
+
+	<!-- Header Section -->
+	<top>
+		<VBox
+			style="-fx-background-color: linear-gradient(to right, #667eea, #764ba2); 
+                     -fx-background-radius: 15 15 0 0; 
+                     -fx-padding: 15;">
+			<effect>
+				<InnerShadow color="#ffffff20" radius="8.0" />
+			</effect>
+
+			<!-- Top Bar with Logo and User Info -->
+			<HBox alignment="CENTER" spacing="15">
+				<!-- Logo Section -->
+				<HBox alignment="CENTER_LEFT" spacing="10" HBox.hgrow="ALWAYS">
+					<StackPane>
+						<Circle radius="30"
+							style="-fx-fill: linear-gradient(to bottom, #ffffff, #e2e8f0);" />
+						<Circle radius="28"
+							style="-fx-fill: linear-gradient(to bottom, #3b82f6, #1e40af);" />
+						<Label text="🚗" style="-fx-font-size: 24px;" />
+						<effect>
+							<DropShadow color="#00000040" radius="6.0" />
+						</effect>
+					</StackPane>
+
+					<VBox alignment="CENTER_LEFT">
+						<Label text="BPark Dashboard"
+							style="-fx-font-size: 28px; 
+                                      -fx-font-weight: bold; 
+                                      -fx-text-fill: white;">
+							<font>
+								<Font name="Segoe UI Bold" size="28.0" />
+							</font>
+							<effect>
+								<DropShadow color="#00000060" radius="4.0" />
+							</effect>
+						</Label>
+						<Label text="Smart Parking Management System"
+							style="-fx-font-size: 12px; 
+                                      -fx-text-fill: #e2e8f0; 
+                                      -fx-font-style: italic;">
+							<effect>
+								<DropShadow color="#00000040" radius="2.0" />
+							</effect>
+						</Label>
+					</VBox>
+				</HBox>
+
+				<!-- User Info Section -->
+				<HBox alignment="CENTER_RIGHT" spacing="15">
+					<Label fx:id="lblUserInfo"
+						style="-fx-font-size: 14px; 
+                                  -fx-font-weight: bold;
+                                  -fx-text-fill: white;"
+						text="Welcome, User!" />
+
+					<Button fx:id="btnProfile" onAction="#viewProfile"
+						text="👤 Profile"
+						style="-fx-background-color: linear-gradient(to bottom, #3b82f6, #2563eb); 
+                                   -fx-text-fill: white; 
+                                   -fx-font-weight: bold; 
+                                   -fx-font-size: 12px; 
+                                   -fx-padding: 8 15; 
+                                   -fx-background-radius: 20; 
+                                   -fx-border-color: #1d4ed8;
+                                   -fx-border-width: 1px;
+                                   -fx-border-radius: 20;
+                                   -fx-cursor: hand;">
+						<effect>
+							<DropShadow color="#00000040" radius="6.0"
+								spread="0.1" />
+						</effect>
+					</Button>
+				</HBox>
+			</HBox>
+
+			<!-- Decorative separator -->
+			<Separator
+				style="-fx-background-color: #ffffff40; -fx-padding: 8 0 0 0;" />
+		</VBox>
+	</top>
+
+	<!-- Main Content -->
+	<center>
+		<VBox alignment="TOP_CENTER" spacing="25"
+			style="-fx-padding: 30 20 20 20;">
+
+			<!-- Main Actions Section - 3 cards in one row -->
+			<VBox alignment="CENTER" spacing="12">
+				<Label text="Main parking operations"
+					style="-fx-font-size: 20px; 
+                              -fx-font-weight: bold; 
+                              -fx-text-fill: white;
+                              -fx-padding: 0 0 8 0;">
+					<font>
+						<Font name="Segoe UI Bold" size="20.0" />
+					</font>
+					<effect>
+						<DropShadow color="#00000060" radius="4.0" />
+					</effect>
+				</Label>
+				
+				<HBox alignment="CENTER" spacing="25">
+					<!-- Reserve Parking Card -->
+					<VBox alignment="CENTER" spacing="10"
+						style="-fx-background-color: linear-gradient(to bottom, #ffffff, #f8fafc); 
+		                         -fx-background-radius: 15; 
+		                         -fx-padding: 20; 
+		                         -fx-border-color: #e2e8f0;
+		                         -fx-border-width: 2px;
+		                         -fx-border-radius: 15;
+		                         -fx-pref-width: 200;
+		                         -fx-pref-height: 160;">
+						<effect>
+							<DropShadow color="#00000025" radius="12.0"
+								spread="0.05" />
+						</effect>
+
+						<Label text="🅿️" style="-fx-font-size: 40px;" />
+						<Label text="Reserve Parking"
+							style="-fx-font-size: 16px; 
+		                              -fx-font-weight: bold; 
+		                              -fx-text-fill: #1e40af;">
+							<font>
+								<Font name="Segoe UI Bold" size="16.0" />
+							</font>
+						</Label>
+						<Label text="Reserve a parking space in advance"
+							style="-fx-font-size: 11px; 
+		                              -fx-text-fill: #6b7280;
+		                              -fx-text-alignment: CENTER;"
+							wrapText="true" />
+						<Button fx:id="btnReserve" onAction="#reserveParking"
+							text="Order now"
+							style="-fx-background-color: linear-gradient(to bottom, #22c55e, #16a34a); 
+		                               -fx-text-fill: white; 
+		                               -fx-font-weight: bold; 
+		                               -fx-font-size: 12px; 
+		                               -fx-padding: 8 20; 
+		                               -fx-background-radius: 20; 
+		                               -fx-border-color: #15803d;
+		                               -fx-border-width: 1px;
+		                               -fx-border-radius: 20;
+		                               -fx-cursor: hand;">
+							<effect>
+								<DropShadow color="#00000040" radius="6.0"
+									spread="0.1" />
+							</effect>
+						</Button>
+					</VBox>
+
+					<!-- Drop Off Car Card -->
+					<VBox alignment="CENTER" spacing="10"
+						style="-fx-background-color: linear-gradient(to bottom, #ffffff, #f8fafc); 
+		                         -fx-background-radius: 15; 
+		                         -fx-padding: 20; 
+		                         -fx-border-color: #e2e8f0;
+		                         -fx-border-width: 2px;
+		                         -fx-border-radius: 15;
+		                         -fx-pref-width: 200;
+		                         -fx-pref-height: 160;">
+						<effect>
+							<DropShadow color="#00000025" radius="12.0"
+								spread="0.05" />
+						</effect>
+
+						<Label text="🚙" style="-fx-font-size: 40px;" />
+						<Label text="Drop Off Car"
+							style="-fx-font-size: 16px; 
+		                              -fx-font-weight: bold; 
+		                              -fx-text-fill: #1e40af;">
+							<font>
+								<Font name="Segoe UI Bold" size="16.0" />
+							</font>
+						</Label>
+						<Label text="Leave your car in the parking lot."
+							style="-fx-font-size: 11px; 
+		                              -fx-text-fill: #6b7280;
+		                              -fx-text-alignment: CENTER;"
+							wrapText="true" />
+						<Button fx:id="btnDropOff" onAction="#dropOffCar"
+							text="Drop Off Car"
+							style="-fx-background-color: linear-gradient(to bottom, #3b82f6, #2563eb); 
+		                               -fx-text-fill: white; 
+		                               -fx-font-weight: bold; 
+		                               -fx-font-size: 12px; 
+		                               -fx-padding: 8 20; 
+		                               -fx-background-radius: 20; 
+		                               -fx-border-color: #1d4ed8;
+		                               -fx-border-width: 1px;
+		                               -fx-border-radius: 20;
+		                               -fx-cursor: hand;">
+							<effect>
+								<DropShadow color="#00000040" radius="6.0"
+									spread="0.1" />
+							</effect>
+						</Button>
+					</VBox>
+
+					<!-- Pick Up Car Card -->
+					<VBox alignment="CENTER" spacing="10"
+						style="-fx-background-color: linear-gradient(to bottom, #ffffff, #f8fafc); 
+		                         -fx-background-radius: 15; 
+		                         -fx-padding: 20; 
+		                         -fx-border-color: #e2e8f0;
+		                         -fx-border-width: 2px;
+		                         -fx-border-radius: 15;
+		                         -fx-pref-width: 200;
+		                         -fx-pref-height: 160;">
+						<effect>
+							<DropShadow color="#00000025" radius="12.0"
+								spread="0.05" />
+						</effect>
+
+						<Label text="🔑" style="-fx-font-size: 40px;" />
+						<Label text="Pick Up Car"
+							style="-fx-font-size: 16px; 
+		                              -fx-font-weight: bold; 
+		                              -fx-text-fill: #1e40af;">
+							<font>
+								<Font name="Segoe UI Bold" size="16.0" />
+							</font>
+						</Label>
+						<Label text="Take the car from the parking lot."
+							style="-fx-font-size: 11px; 
+		                              -fx-text-fill: #6b7280;
+		                              -fx-text-alignment: CENTER;"
+							wrapText="true" />
+						<Button fx:id="btnPickup" onAction="#pickUpCar"
+							text="Pick Up Car"
+							style="-fx-background-color: linear-gradient(to bottom, #f59e0b, #d97706); 
+		                               -fx-text-fill: white; 
+		                               -fx-font-weight: bold; 
+		                               -fx-font-size: 12px; 
+		                               -fx-padding: 8 20; 
+		                               -fx-background-radius: 20; 
+		                               -fx-border-color: #b45309;
+		                               -fx-border-width: 1px;
+		                               -fx-border-radius: 20;
+		                               -fx-cursor: hand;">
+							<effect>
+								<DropShadow color="#00000040" radius="6.0"
+									spread="0.1" />
+							</effect>
+						</Button>
+					</VBox>
+				</HBox>
+			</VBox>
+
+			<!-- Secondary Actions Section - 4 cards in one row -->
+			<VBox alignment="CENTER" spacing="12">
+				<Label text="Management and monitoring"
+					style="-fx-font-size: 18px; 
+                              -fx-font-weight: bold; 
+                              -fx-text-fill: white;
+                              -fx-padding: 0 0 8 0;">
+					<font>
+						<Font name="Segoe UI Bold" size="18.0" />
+					</font>
+					<effect>
+						<DropShadow color="#00000060" radius="4.0" />
+					</effect>
+				</Label>
+				
+				<HBox alignment="CENTER" spacing="20">
+					<!-- Parking History Card -->
+					<VBox alignment="CENTER" spacing="8"
+						style="-fx-background-color: linear-gradient(to bottom, #ffffff, #f8fafc); 
+		                         -fx-background-radius: 12; 
+		                         -fx-padding: 16; 
+		                         -fx-border-color: #e2e8f0;
+		                         -fx-border-width: 1px;
+		                         -fx-border-radius: 12;
+		                         -fx-pref-width: 160;
+		                         -fx-pref-height: 130;">
+						<effect>
+							<DropShadow color="#00000020" radius="8.0"
+								spread="0.05" />
+						</effect>
+
+						<Label text="📊" style="-fx-font-size: 28px;" />
+						<Label text="Parking History"
+							style="-fx-font-size: 13px; 
+		                              -fx-font-weight: bold; 
+		                              -fx-text-fill: #1e40af;">
+							<font>
+								<Font name="Segoe UI Bold" size="13.0" />
+							</font>
+						</Label>
+						<Label text="View previous entries"
+							style="-fx-font-size: 9px; 
+		                              -fx-text-fill: #6b7280;
+		                              -fx-text-alignment: CENTER;"
+							wrapText="true" />
+						<Button fx:id="btnViewParkingHistory"
+							onAction="#viewParkingHistory" text="History"
+							style="-fx-background-color: linear-gradient(to bottom, #8b5cf6, #7c3aed); 
+		                               -fx-text-fill: white; 
+		                               -fx-font-weight: bold; 
+		                               -fx-font-size: 10px; 
+		                               -fx-padding: 6 12; 
+		                               -fx-background-radius: 16; 
+		                               -fx-border-color: #6d28d9;
+		                               -fx-border-width: 1px;
+		                               -fx-border-radius: 16;
+		                               -fx-cursor: hand;">
+							<effect>
+								<DropShadow color="#00000040" radius="4.0"
+									spread="0.1" />
+							</effect>
+						</Button>
+					</VBox>
+
+					<!-- Reservation History Card -->
+					<VBox alignment="CENTER" spacing="8"
+						style="-fx-background-color: linear-gradient(to bottom, #ffffff, #f8fafc); 
+		                         -fx-background-radius: 12; 
+		                         -fx-padding: 16; 
+		                         -fx-border-color: #e2e8f0;
+		                         -fx-border-width: 1px;
+		                         -fx-border-radius: 12;
+		                         -fx-pref-width: 160;
+		                         -fx-pref-height: 130;">
+						<effect>
+							<DropShadow color="#00000020" radius="8.0"
+								spread="0.05" />
+						</effect>
+
+						<Label text="📜" style="-fx-font-size: 28px;" />
+						<Label text="Reservation History"
+							style="-fx-font-size: 13px; 
+		                              -fx-font-weight: bold; 
+		                              -fx-text-fill: #1e40af;">
+							<font>
+								<Font name="Segoe UI Bold" size="13.0" />
+							</font>
+						</Label>
+						<Label text="View previous orders"
+							style="-fx-font-size: 9px; 
+		                              -fx-text-fill: #6b7280;
+		                              -fx-text-alignment: CENTER;"
+							wrapText="true" />
+						<Button fx:id="btnReservationHistory"
+							onAction="#viewReservationHistory" text="Reservation"
+							style="-fx-background-color: linear-gradient(to bottom, #10b981, #059669); 
+		                               -fx-text-fill: white; 
+		                               -fx-font-weight: bold; 
+		                               -fx-font-size: 10px; 
+		                               -fx-padding: 6 12; 
+		                               -fx-background-radius: 16; 
+		                               -fx-border-color: #047857;
+		                               -fx-border-width: 1px;
+		                               -fx-border-radius: 16;
+		                               -fx-cursor: hand;">
+							<effect>
+								<DropShadow color="#00000040" radius="4.0"
+									spread="0.1" />
+							</effect>
+						</Button>
+					</VBox>
+
+					<!-- Update Details Card -->
+					<VBox alignment="CENTER" spacing="8"
+						style="-fx-background-color: linear-gradient(to bottom, #ffffff, #f8fafc); 
+		                         -fx-background-radius: 12; 
+		                         -fx-padding: 16; 
+		                         -fx-border-color: #e2e8f0;
+		                         -fx-border-width: 1px;
+		                         -fx-border-radius: 12;
+		                         -fx-pref-width: 160;
+		                         -fx-pref-height: 130;">
+						<effect>
+							<DropShadow color="#00000020" radius="8.0"
+								spread="0.05" />
+						</effect>
+
+						<Label text="✏️" style="-fx-font-size: 28px;" />
+						<Label text="Update Details"
+							style="-fx-font-size: 13px; 
+		                              -fx-font-weight: bold; 
+		                              -fx-text-fill: #1e40af;">
+							<font>
+								<Font name="Segoe UI Bold" size="13.0" />
+							</font>
+						</Label>
+						<Label text="Update Details"
+							style="-fx-font-size: 9px; 
+		                              -fx-text-fill: #6b7280;
+		                              -fx-text-alignment: CENTER;"
+							wrapText="true" />
+						<Button fx:id="btnUpdateDetails" onAction="#updateDetails"
+							text="Update"
+							style="-fx-background-color: linear-gradient(to bottom, #06b6d4, #0891b2); 
+		                               -fx-text-fill: white; 
+		                               -fx-font-weight: bold; 
+		                               -fx-font-size: 10px; 
+		                               -fx-padding: 6 12; 
+		                               -fx-background-radius: 16; 
+		                               -fx-border-color: #0e7490;
+		                               -fx-border-width: 1px;
+		                               -fx-border-radius: 16;
+		                               -fx-cursor: hand;">
+							<effect>
+								<DropShadow color="#00000040" radius="4.0"
+									spread="0.1" />
+							</effect>
+						</Button>
+					</VBox>
+
+					<!-- Cancel Reservation Card -->
+					<VBox alignment="CENTER" spacing="8"
+						style="-fx-background-color: linear-gradient(to bottom, #ffffff, #f8fafc); 
+		                         -fx-background-radius: 12; 
+		                         -fx-padding: 16; 
+		                         -fx-border-color: #e2e8f0;
+		                         -fx-border-width: 1px;
+		                         -fx-border-radius: 12;
+		                         -fx-pref-width: 160;
+		                         -fx-pref-height: 130;">
+						<effect>
+							<DropShadow color="#00000020" radius="8.0"
+								spread="0.05" />
+						</effect>
+
+						<Label text="❌" style="-fx-font-size: 28px;" />
+						<Label text="Cancel Reservation"
+							style="-fx-font-size: 13px; 
+		                              -fx-font-weight: bold; 
+		                              -fx-text-fill: #1e40af;">
+							<font>
+								<Font name="Segoe UI Bold" size="13.0" />
+							</font>
+						</Label>
+						<Label text="Cancel existing order"
+							style="-fx-font-size: 9px; 
+		                              -fx-text-fill: #6b7280;
+		                              -fx-text-alignment: CENTER;"
+							wrapText="true" />
+						<Button fx:id="btnCancelReservation"
+							onAction="#cancelReservation" text="Cancel"
+							style="-fx-background-color: linear-gradient(to bottom, #ef4444, #dc2626); 
+		                               -fx-text-fill: white; 
+		                               -fx-font-weight: bold; 
+		                               -fx-font-size: 10px; 
+		                               -fx-padding: 6 12; 
+		                               -fx-background-radius: 16; 
+		                               -fx-border-color: #b91c1c;
+		                               -fx-border-width: 1px;
+		                               -fx-border-radius: 16;
+		                               -fx-cursor: hand;">
+							<effect>
+								<DropShadow color="#00000040" radius="4.0"
+									spread="0.1" />
+							</effect>
+						</Button>
+					</VBox>
+				</HBox>
+			</VBox>
+
+		</VBox>
+	</center>
+
+	<!-- Footer -->
+	<bottom>
+		<HBox alignment="CENTER_RIGHT" spacing="15"
+			style="-fx-padding: 15; 
+                     -fx-background-color: linear-gradient(to right, #667eea, #764ba2); 
+                     -fx-background-radius: 0 0 15 15;">
+
+			<Button fx:id="btnExit" onAction="#getExitBtn" text="🚪 Exit"
+				style="-fx-background-color: linear-gradient(to bottom, #ef4444, #dc2626); 
+                           -fx-text-fill: white; 
+                           -fx-font-weight: bold; 
+                           -fx-font-size: 14px; 
+                           -fx-padding: 10 25; 
+                           -fx-background-radius: 20; 
+                           -fx-border-color: #b91c1c;
+                           -fx-border-width: 1px;
+                           -fx-border-radius: 20;
+                           -fx-cursor: hand;">
+				<effect>
+					<DropShadow color="#00000040" radius="6.0" spread="0.1" />
+				</effect>
+			</Button>
+		</HBox>
+	</bottom>
+
+</BorderPane>

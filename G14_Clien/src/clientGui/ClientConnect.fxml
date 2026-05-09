@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="600" prefWidth="700" 
+    style="-fx-background-color: linear-gradient(to bottom, #1e3c72, #2a5298); 
+           -fx-border-color: linear-gradient(to bottom, #3b82f6, #1d4ed8); 
+           -fx-border-width: 2px; 
+           -fx-background-radius: 20; 
+           -fx-border-radius: 20;" 
+    xmlns="http://javafx.com/javafx/23.0.1" 
+    xmlns:fx="http://javafx.com/fxml/1" 
+    fx:controller="clientGui.ClientConnectController">
+
+    <effect>
+        <DropShadow color="#00000080" radius="25.0" spread="0.1" offsetY="15" />
+    </effect>
+
+    <!-- Header Section -->
+    <top>
+        <VBox style="-fx-background-color: linear-gradient(to right, #667eea, #764ba2); 
+                     -fx-background-radius: 20 20 0 0; 
+                     -fx-padding: 25;">
+            <effect>
+                <InnerShadow color="#ffffff20" radius="10.0" />
+            </effect>
+            
+            <!-- Connection Icon and Title -->
+            <HBox alignment="CENTER" spacing="20">
+                <!-- Connection Avatar Circle -->
+                <StackPane>
+                    <Circle radius="35" 
+                           style="-fx-fill: linear-gradient(to bottom, #ffffff, #e2e8f0);" />
+                    <Circle radius="32" 
+                           style="-fx-fill: linear-gradient(to bottom, #3b82f6, #1e40af);" />
+                    <Label text="🌐" style="-fx-font-size: 32px;" />
+                    <effect>
+                        <DropShadow color="#00000040" radius="8.0" />
+                    </effect>
+                </StackPane>
+                
+                <!-- Title -->
+                <VBox alignment="CENTER_LEFT">
+                    <Label text="Connect to Server" 
+                           style="-fx-font-size: 36px; 
+                                  -fx-font-weight: bold; 
+                                  -fx-text-fill: white;">
+                        <font>
+                            <Font name="Segoe UI Bold" size="36.0" />
+                        </font>
+                        <effect>
+                            <DropShadow color="#00000060" radius="5.0" />
+                        </effect>
+                    </Label>
+                    <Label text="Enter server details to establish connection" 
+                           style="-fx-font-size: 14px; 
+                                  -fx-text-fill: #e2e8f0; 
+                                  -fx-font-style: italic;">
+                        <effect>
+                            <DropShadow color="#00000040" radius="2.0" />
+                        </effect>
+                    </Label>
+                </VBox>
+            </HBox>
+            
+            <!-- Decorative separator -->
+            <Separator style="-fx-background-color: #ffffff40;" />
+        </VBox>
+    </top>
+
+    <!-- Main Content - Connection Form -->
+    <center>
+        <VBox alignment="CENTER" style="-fx-padding: 40; -fx-spacing: 25;">
+            
+            <!-- Connection Form Card -->
+            <VBox style="-fx-background-color: linear-gradient(to bottom, #ffffff, #f8fafc); 
+                         -fx-background-radius: 15; 
+                         -fx-padding: 40; 
+                         -fx-spacing: 25;
+                         -fx-border-color: #e2e8f0;
+                         -fx-border-width: 1px;
+                         -fx-border-radius: 15;
+                         -fx-pref-width: 500;
+                         -fx-max-width: 500;">
+                <effect>
+                    <DropShadow color="#00000020" radius="15.0" spread="0.05" />
+                </effect>
+                
+                <!-- Card Header -->
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label text="🔌" style="-fx-font-size: 20px;" />
+                    <Label text="Server Connection" 
+                           style="-fx-font-size: 20px; 
+                                  -fx-font-weight: bold; 
+                                  -fx-text-fill: #1e40af;">
+                        <font>
+                            <Font name="Segoe UI Bold" size="20.0" />
+                        </font>
+                    </Label>
+                </HBox>
+                
+                <!-- Connection Form Grid -->
+                <GridPane hgap="20" vgap="20" style="-fx-padding: 10 0;">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="RIGHT" minWidth="120" prefWidth="140" />
+                        <ColumnConstraints halignment="LEFT" minWidth="250" prefWidth="300" />
+                    </columnConstraints>
+
+                    <!-- Server IP Address -->
+                    <HBox alignment="CENTER_RIGHT" spacing="8" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                        <Label text="🌐" style="-fx-font-size: 16px;" />
+                        <Label text="Server IP:" 
+                               style="-fx-text-fill: #374151; 
+                                      -fx-font-weight: bold; 
+                                      -fx-font-size: 14px;" />
+                    </HBox>
+                    <TextField fx:id="txtId" 
+                               promptText="e.g. 127.0.0.1"
+                               style="-fx-text-fill: #1f2937; 
+                                      -fx-font-size: 14px; 
+                                      -fx-padding: 12 16; 
+                                      -fx-background-color: linear-gradient(to bottom, #f8fafc, #f1f5f9); 
+                                      -fx-background-radius: 8; 
+                                      -fx-border-color: #cbd5e1;
+                                      -fx-border-width: 1px;
+                                      -fx-border-radius: 8;
+                                      -fx-prompt-text-fill: #9ca3af;" 
+                               GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                </GridPane>
+                
+                <!-- Connection Status -->
+                <VBox alignment="CENTER" spacing="10">
+                    <HBox alignment="CENTER" spacing="8">
+                        <Label text="📊" style="-fx-font-size: 16px;" />
+                        <Label text="Connection Status:" 
+                               style="-fx-text-fill: #374151; 
+                                      -fx-font-weight: bold; 
+                                      -fx-font-size: 14px;" />
+                    </HBox>
+                    <Label fx:id="conStatus" 
+                           style="-fx-text-fill: #dc2626; 
+                                  -fx-font-size: 14px; 
+                                  -fx-font-weight: bold;
+                                  -fx-padding: 10 20;
+                                  -fx-background-color: linear-gradient(to bottom, #fef2f2, #fecaca);
+                                  -fx-background-radius: 8;
+                                  -fx-border-color: #ef4444;
+                                  -fx-border-width: 1px;
+                                  -fx-border-radius: 8;
+                                  -fx-alignment: center;
+                                  -fx-min-width: 250;" />
+                </VBox>
+            </VBox>
+        </VBox>
+    </center>
+
+    <!-- Footer with Action Buttons -->
+    <bottom>
+        <HBox alignment="CENTER" spacing="20" 
+              style="-fx-padding: 25; 
+                     -fx-background-color: linear-gradient(to right, #667eea, #764ba2); 
+                     -fx-background-radius: 0 0 20 20;">
+            
+            <!-- Connect Button -->
+            <Button fx:id="btnConnect" 
+                    onAction="#getBtnConnect" 
+                    text="🔗 Connect" 
+                    style="-fx-background-color: linear-gradient(to bottom, #22c55e, #16a34a); 
+                           -fx-text-fill: white; 
+                           -fx-font-weight: bold; 
+                           -fx-font-size: 16px; 
+                           -fx-padding: 12 35; 
+                           -fx-background-radius: 25; 
+                           -fx-border-color: #15803d;
+                           -fx-border-width: 1px;
+                           -fx-border-radius: 25;
+                           -fx-cursor: hand;">
+                <effect>
+                    <DropShadow color="#00000040" radius="8.0" spread="0.1" />
+                </effect>
+            </Button>
+            
+            <!-- Exit Button -->
+            <Button fx:id="btnExit" 
+                    onAction="#getExitBtn" 
+                    text="❌ Exit" 
+                    style="-fx-background-color: linear-gradient(to bottom, #ef4444, #dc2626); 
+                           -fx-text-fill: white; 
+                           -fx-font-weight: bold; 
+                           -fx-font-size: 14px; 
+                           -fx-padding: 12 30; 
+                           -fx-background-radius: 25; 
+                           -fx-border-color: #b91c1c;
+                           -fx-border-width: 1px;
+                           -fx-border-radius: 25;
+                           -fx-cursor: hand;">
+                <effect>
+                    <DropShadow color="#00000040" radius="8.0" spread="0.1" />
+                </effect>
+            </Button>
+        </HBox>
+    </bottom>
+</BorderPane>

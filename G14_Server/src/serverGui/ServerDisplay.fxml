@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane prefHeight="550.0" prefWidth="900.0"
+            style="-fx-background-color: linear-gradient(to bottom, #1e3c72, #2a5298); 
+                   -fx-border-color: linear-gradient(to bottom, #3b82f6, #1d4ed8); 
+                   -fx-border-width: 2px; 
+                   -fx-background-radius: 15; 
+                   -fx-border-radius: 15;"
+            xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="serverGui.ServerDisplayController">
+
+    <effect>
+        <DropShadow color="#00000080" radius="20.0" spread="0.1" offsetY="10" />
+    </effect>
+
+    <!-- Header Section -->
+    <top>
+        <VBox style="-fx-background-color: linear-gradient(to right, #667eea, #764ba2); 
+                     -fx-background-radius: 15 15 0 0; 
+                     -fx-padding: 15;">
+            <effect>
+                <InnerShadow color="#ffffff20" radius="8.0" />
+            </effect>
+            
+            <!-- Icon and Title -->
+            <HBox alignment="CENTER" spacing="15">
+                <!-- Server Icon Circle -->
+                <StackPane>
+                    <Circle radius="25" 
+                           style="-fx-fill: linear-gradient(to bottom, #ffffff, #e2e8f0);" />
+                    <Circle radius="22" 
+                           style="-fx-fill: linear-gradient(to bottom, #3b82f6, #1e40af);" />
+                    <Label text="🖥️" style="-fx-font-size: 20px;" />
+                    <effect>
+                        <DropShadow color="#00000040" radius="6.0" />
+                    </effect>
+                </StackPane>
+                
+                <!-- Title -->
+                <VBox alignment="CENTER_LEFT">
+                    <Label fx:id="Server_Configuration" text="Server Configuration" 
+                           style="-fx-font-size: 24px; 
+                                  -fx-font-weight: bold; 
+                                  -fx-text-fill: white;">
+                        <font>
+                            <Font name="Segoe UI Bold" size="24.0" />
+                        </font>
+                        <effect>
+                            <DropShadow color="#00000060" radius="4.0" />
+                        </effect>
+                    </Label>
+                    <Label text="BPark Server Management Console" 
+                           style="-fx-font-size: 11px; 
+                                  -fx-text-fill: #e2e8f0; 
+                                  -fx-font-style: italic;">
+                        <effect>
+                            <DropShadow color="#00000040" radius="2.0" />
+                        </effect>
+                    </Label>
+                </VBox>
+            </HBox>
+            
+            <!-- Decorative separator -->
+            <Separator style="-fx-background-color: #ffffff40;" />
+        </VBox>
+    </top>
+
+    <!-- Main Content -->
+    <center>
+        <ScrollPane fitToWidth="true" 
+                    style="-fx-background-color: transparent; 
+                           -fx-background: transparent;">
+            <VBox spacing="15" style="-fx-padding: 20;">
+            
+            <!-- Connection Settings Card -->
+            <VBox style="-fx-background-color: linear-gradient(to bottom, #ffffff, #f8fafc); 
+                         -fx-background-radius: 12; 
+                         -fx-padding: 20; 
+                         -fx-border-color: #e2e8f0;
+                         -fx-border-width: 1px;
+                         -fx-border-radius: 12;">
+                <effect>
+                    <DropShadow color="#00000020" radius="12.0" spread="0.05" />
+                </effect>
+                
+                <!-- Card Header -->
+                <HBox alignment="CENTER_LEFT" spacing="8" style="-fx-padding: 0 0 15 0;">
+                    <Label text="⚙️" style="-fx-font-size: 18px;" />
+                    <Label text="Connection Settings" 
+                           style="-fx-font-size: 16px; 
+                                  -fx-font-weight: bold; 
+                                  -fx-text-fill: #1e40af;">
+                        <font>
+                            <Font name="Segoe UI Bold" size="16.0" />
+                        </font>
+                    </Label>
+                </HBox>
+                
+                <Separator style="-fx-background-color: #e2e8f0;" />
+                
+                <!-- Configuration Grid -->
+                <GridPane hgap="15" vgap="12" style="-fx-padding: 15 0;">
+                    <columnConstraints>
+                        <ColumnConstraints minWidth="130.0" halignment="RIGHT" />
+                        <ColumnConstraints minWidth="200.0" prefWidth="250.0" />
+                    </columnConstraints>
+
+                    <!-- Server IP -->
+                    <HBox alignment="CENTER_LEFT" spacing="6" GridPane.rowIndex="0" GridPane.columnIndex="0">
+                        <Label text="🌐" style="-fx-font-size: 12px;" />
+                        <Label text="Server IP:" style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #374151;" />
+                    </HBox>
+                    <Label fx:id="server_ipLabel" text="Server IP" 
+                           GridPane.rowIndex="0" GridPane.columnIndex="1"
+                           style="-fx-font-size: 12px; 
+                                  -fx-text-fill: #1f2937; 
+                                  -fx-padding: 8 15; 
+                                  -fx-background-color: linear-gradient(to bottom, #f1f5f9, #e2e8f0); 
+                                  -fx-background-radius: 6; 
+                                  -fx-border-color: #cbd5e1;
+                                  -fx-border-width: 1px;
+                                  -fx-border-radius: 6;" />
+
+                    <!-- Port -->
+                    <HBox alignment="CENTER_LEFT" spacing="6" GridPane.rowIndex="1" GridPane.columnIndex="0">
+                        <Label text="🔌" style="-fx-font-size: 12px;" />
+                        <Label text="Port:" style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #374151;" />
+                    </HBox>
+                    <TextField fx:id="port" text="5555" 
+                               GridPane.rowIndex="1" GridPane.columnIndex="1"
+                               style="-fx-background-color: linear-gradient(to bottom, #f1f5f9, #e2e8f0); 
+                                      -fx-text-fill: #1f2937; 
+                                      -fx-border-color: #cbd5e1; 
+                                      -fx-border-width: 1px;
+                                      -fx-border-radius: 6; 
+                                      -fx-background-radius: 6;
+                                      -fx-font-size: 12px;
+                                      -fx-padding: 8 12;" />
+
+                    <!-- Database Name -->
+                    <HBox alignment="CENTER_LEFT" spacing="6" GridPane.rowIndex="2" GridPane.columnIndex="0">
+                        <Label text="💾" style="-fx-font-size: 12px;" />
+                        <Label text="Database Name:" style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #374151;" />
+                    </HBox>
+                    <TextField fx:id="DBname" text="hw2" 
+                               GridPane.rowIndex="2" GridPane.columnIndex="1"
+                               style="-fx-background-color: linear-gradient(to bottom, #f1f5f9, #e2e8f0); 
+                                      -fx-text-fill: #1f2937; 
+                                      -fx-border-color: #cbd5e1; 
+                                      -fx-border-width: 1px;
+                                      -fx-border-radius: 6; 
+                                      -fx-background-radius: 6;
+                                      -fx-font-size: 12px;
+                                      -fx-padding: 8 12;" />
+
+                    <!-- Database User -->
+                    <HBox alignment="CENTER_LEFT" spacing="6" GridPane.rowIndex="3" GridPane.columnIndex="0">
+                        <Label text="👤" style="-fx-font-size: 12px;" />
+                        <Label text="Database User:" style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #374151;" />
+                    </HBox>
+                    <TextField fx:id="DBuser" text="root" 
+                               GridPane.rowIndex="3" GridPane.columnIndex="1"
+                               style="-fx-background-color: linear-gradient(to bottom, #f1f5f9, #e2e8f0); 
+                                      -fx-text-fill: #1f2937; 
+                                      -fx-border-color: #cbd5e1; 
+                                      -fx-border-width: 1px;
+                                      -fx-border-radius: 6; 
+                                      -fx-background-radius: 6;
+                                      -fx-font-size: 12px;
+                                      -fx-padding: 8 12;" />
+
+                    <!-- Database Password -->
+                    <HBox alignment="CENTER_LEFT" spacing="6" GridPane.rowIndex="4" GridPane.columnIndex="0">
+                        <Label text="🔒" style="-fx-font-size: 12px;" />
+                        <Label text="Database Password:" style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #374151;" />
+                    </HBox>
+                    <PasswordField fx:id="DBpassword" text="Connect" 
+                                   GridPane.rowIndex="4" GridPane.columnIndex="1"
+                                   style="-fx-background-color: linear-gradient(to bottom, #f1f5f9, #e2e8f0); 
+                                          -fx-text-fill: #1f2937; 
+                                          -fx-border-color: #cbd5e1; 
+                                          -fx-border-width: 1px;
+                                          -fx-border-radius: 6; 
+                                          -fx-background-radius: 6;
+                                          -fx-font-size: 12px;
+                                          -fx-padding: 8 12;" />
+                </GridPane>
+
+                <!-- Buttons and Status -->
+                <VBox spacing="15" style="-fx-padding: 15 0 0 0;">
+                    <!-- Control Buttons -->
+                    <HBox alignment="CENTER" spacing="15">
+                        <Button fx:id="connectBtn" onAction="#connect" 
+                                text="🔗 Connect"
+                                style="-fx-background-color: linear-gradient(to bottom, #22c55e, #16a34a); 
+                                       -fx-text-fill: white; 
+                                       -fx-font-weight: bold; 
+                                       -fx-font-size: 12px; 
+                                       -fx-padding: 8 25; 
+                                       -fx-background-radius: 20; 
+                                       -fx-border-color: #15803d;
+                                       -fx-border-width: 1px;
+                                       -fx-border-radius: 20;
+                                       -fx-cursor: hand;">
+                            <effect>
+                                <DropShadow color="#00000040" radius="6.0" spread="0.1" />
+                            </effect>
+                        </Button>
+                        
+                        <Button fx:id="disconnectBtn" onAction="#disconnect" 
+                                text="⚡ Disconnect"
+                                style="-fx-background-color: linear-gradient(to bottom, #ef4444, #dc2626); 
+                                       -fx-text-fill: white; 
+                                       -fx-font-weight: bold; 
+                                       -fx-font-size: 12px; 
+                                       -fx-padding: 8 25; 
+                                       -fx-background-radius: 20; 
+                                       -fx-border-color: #b91c1c;
+                                       -fx-border-width: 1px;
+                                       -fx-border-radius: 20;
+                                       -fx-cursor: hand;">
+                            <effect>
+                                <DropShadow color="#00000040" radius="6.0" spread="0.1" />
+                            </effect>
+                        </Button>
+                        
+                        <Button fx:id="closeBtn" onAction="#getcloseBtn" 
+                                text="❌ Close"
+                                style="-fx-background-color: linear-gradient(to bottom, #6b7280, #4b5563); 
+                                       -fx-text-fill: white; 
+                                       -fx-font-weight: bold; 
+                                       -fx-font-size: 12px; 
+                                       -fx-padding: 8 25; 
+                                       -fx-background-radius: 20; 
+                                       -fx-border-color: #374151;
+                                       -fx-border-width: 1px;
+                                       -fx-border-radius: 20;
+                                       -fx-cursor: hand;">
+                            <effect>
+                                <DropShadow color="#00000040" radius="6.0" spread="0.1" />
+                            </effect>
+                        </Button>
+                    </HBox>
+                    
+                    <!-- Status Indicator -->
+                    <HBox alignment="CENTER" spacing="10" 
+                          style="-fx-background-color: linear-gradient(to bottom, #fee2e2, #fecaca);
+                                 -fx-padding: 10;
+                                 -fx-background-radius: 8;
+                                 -fx-border-color: #ef4444;
+                                 -fx-border-width: 1px;
+                                 -fx-border-radius: 8;">
+                        <Circle fx:id="statusIndicator" radius="8.0" fill="#ef4444">
+                            <effect>
+                                <InnerShadow color="#00000040" radius="2.0" />
+                            </effect>
+                        </Circle>
+                        <Label fx:id="serverStatusLabel" text="Server disconnected" 
+                               style="-fx-font-size: 12px; 
+                                      -fx-font-weight: bold;
+                                      -fx-text-fill: #991b1b;" />
+                    </HBox>
+                </VBox>
+            </VBox>
+
+            <!-- Connected Clients Table -->
+            <VBox style="-fx-background-color: linear-gradient(to bottom, #ffffff, #f8fafc); 
+                         -fx-background-radius: 12; 
+                         -fx-padding: 20; 
+                         -fx-border-color: #e2e8f0;
+                         -fx-border-width: 1px;
+                         -fx-border-radius: 12;">
+                <effect>
+                    <DropShadow color="#00000020" radius="12.0" spread="0.05" />
+                </effect>
+                
+                <!-- Table Header -->
+                <HBox alignment="CENTER_LEFT" spacing="8" style="-fx-padding: 0 0 15 0;">
+                    <Label text="👥" style="-fx-font-size: 18px;" />
+                    <Label text="Connected Clients" 
+                           style="-fx-font-size: 16px; 
+                                  -fx-font-weight: bold; 
+                                  -fx-text-fill: #1e40af;">
+                        <font>
+                            <Font name="Segoe UI Bold" size="16.0" />
+                        </font>
+                    </Label>
+                </HBox>
+                
+                <Separator style="-fx-background-color: #e2e8f0;" />
+                
+                <!-- Clients Table -->
+                <TableView fx:id="clientTable" prefHeight="120.0"
+                           style="-fx-background-color: #f8fafc;
+                                  -fx-background-radius: 8;
+                                  -fx-border-color: #e2e8f0; 
+                                  -fx-border-width: 1px; 
+                                  -fx-border-radius: 8;">
+                    <columns>
+                        <TableColumn fx:id="hostNameColumn" text="🖥️ Host Name" prefWidth="250.0" 
+                            style="-fx-background-color: linear-gradient(to bottom, #667eea, #764ba2);
+                                   -fx-text-fill: white;
+                                   -fx-font-weight: bold; 
+                                   -fx-alignment: CENTER;
+                                   -fx-font-size: 12px;"/>
+                        <TableColumn fx:id="ipAddressColumn" text="🌐 IP Address" prefWidth="250.0" 
+                            style="-fx-background-color: linear-gradient(to bottom, #667eea, #764ba2);
+                                   -fx-text-fill: white;
+                                   -fx-font-weight: bold; 
+                                   -fx-alignment: CENTER;
+                                   -fx-font-size: 12px;"/>
+                        <TableColumn fx:id="statusColumn" text="✅ Status" prefWidth="200.0" 
+                            style="-fx-background-color: linear-gradient(to bottom, #667eea, #764ba2);
+                                   -fx-text-fill: white;
+                                   -fx-font-weight: bold; 
+                                   -fx-alignment: CENTER;
+                                   -fx-font-size: 12px;"/>
+                    </columns>
+                    <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                    </columnResizePolicy>
+                    <placeholder>
+                        <Label text="No clients connected" 
+                               style="-fx-text-fill: #9ca3af; 
+                                      -fx-font-size: 14px;
+                                      -fx-font-style: italic;" />
+                    </placeholder>
+                    <effect>
+                        <InnerShadow color="#00000010" radius="4.0" />
+                    </effect>
+                </TableView>
+            </VBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+
+</BorderPane>

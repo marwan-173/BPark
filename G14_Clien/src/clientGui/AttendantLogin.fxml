@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane prefHeight="600" prefWidth="800" 
+    style="-fx-background-color: linear-gradient(to bottom, #1e3c72, #2a5298); 
+           -fx-border-color: linear-gradient(to bottom, #3b82f6, #1d4ed8); 
+           -fx-border-width: 2px; 
+           -fx-background-radius: 20; 
+           -fx-border-radius: 20;" 
+    xmlns="http://javafx.com/javafx/23.0.1" 
+    xmlns:fx="http://javafx.com/fxml/1" 
+    fx:controller="clientGui.AttendantLoginController">
+
+    <effect>
+        <DropShadow color="#00000080" radius="25.0" spread="0.1" offsetY="15" />
+    </effect>
+
+    <!-- Header Section -->
+    <top>
+        <VBox style="-fx-background-color: linear-gradient(to right, #667eea, #764ba2); 
+                     -fx-background-radius: 20 20 0 0; 
+                     -fx-padding: 25;">
+            <effect>
+                <InnerShadow color="#ffffff20" radius="10.0" />
+            </effect>
+            
+            <!-- Profile Icon and Title -->
+            <HBox alignment="CENTER" spacing="20">
+                <!-- Attendant Avatar Circle -->
+                <StackPane>
+                    <Circle radius="35" 
+                           style="-fx-fill: linear-gradient(to bottom, #ffffff, #e2e8f0);" />
+                    <Circle radius="32" 
+                           style="-fx-fill: linear-gradient(to bottom, #06b6d4, #0891b2);" />
+                    <Label text="🛠" style="-fx-font-size: 32px;" />
+                    <effect>
+                        <DropShadow color="#00000040" radius="8.0" />
+                    </effect>
+                </StackPane>
+                
+                <!-- Title -->
+                <VBox alignment="CENTER_LEFT">
+                    <Label text="Attendant Login" 
+                           style="-fx-font-size: 36px; 
+                                  -fx-font-weight: bold; 
+                                  -fx-text-fill: white;">
+                        <font>
+                            <Font name="Segoe UI Bold" size="36.0" />
+                        </font>
+                        <effect>
+                            <DropShadow color="#00000060" radius="5.0" />
+                        </effect>
+                    </Label>
+                    <Label text="Technical Support Access Portal" 
+                           style="-fx-font-size: 14px; 
+                                  -fx-text-fill: #e2e8f0; 
+                                  -fx-font-style: italic;">
+                        <effect>
+                            <DropShadow color="#00000040" radius="2.0" />
+                        </effect>
+                    </Label>
+                </VBox>
+            </HBox>
+            
+            <!-- Decorative separator -->
+            <Separator style="-fx-background-color: #ffffff40;" />
+        </VBox>
+    </top>
+
+    <!-- Main Content - Login Form -->
+    <center>
+        <VBox alignment="CENTER" style="-fx-padding: 50;">
+            
+            <!-- Login Card -->
+            <VBox style="-fx-background-color: linear-gradient(to bottom, #ffffff, #f8fafc); 
+                         -fx-background-radius: 15; 
+                         -fx-padding: 40; 
+                         -fx-spacing: 25;
+                         -fx-border-color: #e2e8f0;
+                         -fx-border-width: 1px;
+                         -fx-border-radius: 15;
+                         -fx-pref-width: 500;
+                         -fx-max-width: 500;">
+                <effect>
+                    <DropShadow color="#00000020" radius="15.0" spread="0.05" />
+                </effect>
+                
+                <!-- Card Header -->
+                <HBox alignment="CENTER" spacing="15">
+                    <Label text="🔧" style="-fx-font-size: 24px;" />
+                    <Label text="Secure Attendant Access" 
+                           style="-fx-font-size: 24px; 
+                                  -fx-font-weight: bold; 
+                                  -fx-text-fill: #1e40af;">
+                        <font>
+                            <Font name="Segoe UI Bold" size="24.0" />
+                        </font>
+                    </Label>
+                </HBox>
+                
+                <!-- Login Form Grid -->
+                <GridPane hgap="20" vgap="25" style="-fx-padding: 20 0;">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="RIGHT" minWidth="120" prefWidth="140" />
+                        <ColumnConstraints halignment="LEFT" minWidth="250" prefWidth="300" />
+                    </columnConstraints>
+
+                    <!-- Username -->
+                    <HBox alignment="CENTER_RIGHT" spacing="8" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                        <Label text="👤" style="-fx-font-size: 18px;" />
+                        <Label text="Username:" 
+                               style="-fx-text-fill: #374151; 
+                                      -fx-font-weight: bold; 
+                                      -fx-font-size: 16px;" />
+                    </HBox>
+                    <TextField fx:id="usernameField" 
+                           style="-fx-text-fill: #1f2937; 
+                                  -fx-font-size: 16px; 
+                                  -fx-padding: 12 16; 
+                                  -fx-background-color: linear-gradient(to bottom, #f8fafc, #f1f5f9); 
+                                  -fx-background-radius: 10; 
+                                  -fx-border-color: #06b6d4;
+                                  -fx-border-width: 2px;
+                                  -fx-border-radius: 10;
+                                  -fx-pref-height: 45;
+                                  -fx-min-width: 250;" 
+                           promptText="Enter your username"
+                           GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                    <!-- Password -->
+                    <HBox alignment="CENTER_RIGHT" spacing="8" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                        <Label text="🔒" style="-fx-font-size: 18px;" />
+                        <Label text="Password:" 
+                               style="-fx-text-fill: #374151; 
+                                      -fx-font-weight: bold; 
+                                      -fx-font-size: 16px;" />
+                    </HBox>
+                    <PasswordField fx:id="passwordField" 
+                           style="-fx-text-fill: #1f2937; 
+                                  -fx-font-size: 16px; 
+                                  -fx-padding: 12 16; 
+                                  -fx-background-color: linear-gradient(to bottom, #f8fafc, #f1f5f9); 
+                                  -fx-background-radius: 10; 
+                                  -fx-border-color: #06b6d4;
+                                  -fx-border-width: 2px;
+                                  -fx-border-radius: 10;
+                                  -fx-pref-height: 45;
+                                  -fx-min-width: 250;" 
+                           promptText="Enter your password"
+                           GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                </GridPane>
+                
+                <!-- Status Message -->
+                <Label fx:id="lblStatus" 
+                       alignment="CENTER" 
+                       style="-fx-text-fill: #ef4444; 
+                              -fx-font-size: 14px; 
+                              -fx-font-weight: bold;
+                              -fx-background-color: #fef2f2;
+                              -fx-border-color: #fecaca;
+                              -fx-border-width: 1px;
+                              -fx-border-radius: 8;
+                              -fx-background-radius: 8;
+                              -fx-padding: 10;
+                              -fx-min-height: 20;" 
+                       visible="true" />
+            </VBox>
+        </VBox>
+    </center>
+
+    <!-- Footer with Actions -->
+    <bottom>
+        <HBox alignment="CENTER" spacing="25" 
+              style="-fx-padding: 25; 
+                     -fx-background-color: linear-gradient(to right, #667eea, #764ba2); 
+                     -fx-background-radius: 0 0 20 20;">
+            
+            <!-- Back Button -->
+            <Button onAction="#handleBack" 
+                    text="← Back" 
+                    style="-fx-background-color: linear-gradient(to bottom, #ef4444, #dc2626); 
+                           -fx-text-fill: white; 
+                           -fx-font-weight: bold; 
+                           -fx-font-size: 16px; 
+                           -fx-padding: 12 30; 
+                           -fx-background-radius: 25; 
+                           -fx-border-color: #b91c1c;
+                           -fx-border-width: 1px;
+                           -fx-border-radius: 25;
+                           -fx-cursor: hand;
+                           -fx-pref-width: 140;">
+                <effect>
+                    <DropShadow color="#00000040" radius="8.0" spread="0.1" />
+                </effect>
+            </Button>
+            
+            <!-- Login Button -->
+            <Button onAction="#handleLogin" 
+                    text="🔧 Login" 
+                    style="-fx-background-color: linear-gradient(to bottom, #0891b2, #0e7490); 
+                           -fx-text-fill: white; 
+                           -fx-font-weight: bold; 
+                           -fx-font-size: 18px; 
+                           -fx-padding: 15 40; 
+                           -fx-background-radius: 25; 
+                           -fx-border-color: #0c4a6e;
+                           -fx-border-width: 1px;
+                           -fx-border-radius: 25;
+                           -fx-cursor: hand;
+                           -fx-pref-width: 200;">
+                <effect>
+                    <DropShadow color="#00000040" radius="10.0" spread="0.1" />
+                </effect>
+            </Button>
+        </HBox>
+    </bottom>
+</BorderPane>
